@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '7.0'
   s.requires_arc = true
 
-  s.source_files = 'Pod/Classes'
+  s.source_files = 'Pod/Classes/KNT{ReactiveView.h,CollectionViewBindingHelper,TableViewBindingHelper}'
 
   s.dependency 'ReactiveCocoa', '~> 2.3.1'
   s.dependency 'ReactiveViewModel', '~> 0.2'
