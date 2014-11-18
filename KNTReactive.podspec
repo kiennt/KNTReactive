@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "KNTReactive"
-  s.version          = "0.0.4"
+  s.version          = "0.0.5"
   s.summary          = "Reactive binding"
   s.description      = <<-DESC
                        Reactive binding for table, and collection view
@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '7.0'
   s.requires_arc = true
 
-  s.source_files = 'Pod/Classes/KNTReactiveView.h,KNTCollectionViewBindingHelper.h,KNTTableViewBindingHelper.h,KNTCollectionViewBindingHelper.m,KNTTableViewBindingHelper.m'
+  s.source_files = 'KNTReactive/**/*.{h,m}'
 
   s.dependency 'ReactiveCocoa', '~> 2.3.1'
   s.dependency 'ReactiveViewModel', '~> 0.2'
