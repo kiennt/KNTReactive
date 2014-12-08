@@ -100,6 +100,14 @@
     }
 }
 
+- (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (!cell || !indexPath)
+        return;
+    if ([cell respondsToSelector:@selector(didEndDisplay)]) {
+        [cell performSelector:@selector(didEndDisplay)];
+    }
+}
+
 #pragma mark = UITableViewDelegate forwarding
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {

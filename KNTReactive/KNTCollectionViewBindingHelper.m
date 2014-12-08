@@ -86,4 +86,12 @@
     [_selection execute:_data[indexPath.row]];
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (!cell || !indexPath)
+        return;
+    if ([cell respondsToSelector:@selector(didEndDisplay)]) {
+        [cell performSelector:@selector(didEndDisplay)];
+    }
+}
+
 @end
