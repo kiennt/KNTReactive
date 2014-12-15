@@ -29,25 +29,25 @@
                            sourceSignal:(RACSignal *)source
                        selectionCommand:(RACCommand *)selection
                            templateCell:(NSString *)nibName {
-    
+
     if (self = [super init]) {
         _collectionView = collectionView;
         _data = [NSArray array];
         _selection = selection;
         _parentViewModel = parentViewModel;
-        
+
         // each time the view model updates the array property, store the latest
         // value and reload the table view
         [source subscribeNext:^(id x) {
             self->_data = x;
             [self->_collectionView reloadData];
         }];
-        
+
         // create an instance of the template cell and register with the table view
         UINib *templateCellNib = [UINib nibWithNibName:nibName bundle:nil];
         _templateCell = [[templateCellNib instantiateWithOwner:nil options:nil] firstObject];
         [_collectionView registerNib:templateCellNib forCellWithReuseIdentifier:_templateCell.reuseIdentifier];
-        
+
         _collectionView.dataSource = self;
         _collectionView.delegate = self;
     }
@@ -59,7 +59,7 @@
                                   sourceSignal:(RACSignal *)source
                               selectionCommand:(RACCommand *)selection
                                   templateCell:(NSString *)nibName {
-    
+
     return [[KNTCollectionViewBindingHelper alloc] initWithCollectionView:collectionView
                                                           parentViewModel:parentViewModel
                                                              sourceSignal:source
@@ -81,7 +81,7 @@
 
 #pragma mark = UICollectionViewDelegate methods
 
-- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     // execute the command
     [_selection execute:_data[indexPath.row]];
 }
