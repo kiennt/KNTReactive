@@ -12,7 +12,7 @@
 
 @interface KNTCollectionViewBindingHelper : NSObject
 
-@property (weak, nonatomic) id<UICollectionDelegate> delegate;
+@property (weak, nonatomic) id<UICollectionViewDelegate> delegate;
 
 - (instancetype) initWithCollectionView:(UICollectionView *)collectionView
                         parentViewModel:(RVMViewModel *)parentViewModel
