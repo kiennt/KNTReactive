@@ -94,4 +94,24 @@
     }
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if ([self.delegate respondsToSelector:@selector(scrollViewDidScroll:)]) {
+        [self.delegate scrollViewDidScroll:scrollView];
+    }
+}
+
+- (BOOL)respondsToSelector:(SEL)aSelector {
+    if ([self.delegate respondsToSelector:aSelector]) {
+        return YES;
+    }
+    return [super respondsToSelector:aSelector];
+}
+
+- (id)forwardingTargetForSelector:(SEL)aSelector {
+    if ([self.delegate respondsToSelector:aSelector]) {
+        return self.delegate;
+    }
+    return [super forwardingTargetForSelector:aSelector];
+}
+
 @end
