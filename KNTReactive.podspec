@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "KNTReactive"
-  s.version          = "0.0.9"
+  s.version          = "0.0.10"
   s.summary          = "Reactive binding"
   s.description      = <<-DESC
                        Reactive binding for table, and collection view
@@ -15,6 +15,6 @@ Pod::Spec.new do |s|
 
   s.source_files = 'KNTReactive/**/*.{h,m}'
 
-  s.dependency 'ReactiveCocoa', '~> 2.3.1'
-  s.dependency 'ReactiveViewModel', '~> 0.2'
+  s.dependency 'ReactiveCocoa', '2.3.1'
+  s.dependency 'ReactiveViewModel', '0.2'
 end
