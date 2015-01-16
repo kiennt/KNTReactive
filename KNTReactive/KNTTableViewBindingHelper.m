@@ -41,7 +41,9 @@
         
         // each time the view model updates the array property, store the latest
         // value and reload the table view
+        @weakify(self);
         [source subscribeNext:^(id x) {
+            @strongify(self);
             self->_data = x;
             [self->_tableView reloadData];
         }];
