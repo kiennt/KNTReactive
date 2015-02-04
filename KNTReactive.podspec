@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "KNTReactive"
-  s.version          = "0.0.12"
+  s.version          = "0.0.13"
   s.summary          = "Reactive binding"
   s.description      = <<-DESC
                        Reactive binding for table, and collection view
