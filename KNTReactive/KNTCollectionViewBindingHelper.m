@@ -41,6 +41,7 @@
         @weakify(self);
         [source subscribeNext:^(id x) {
             @strongify(self);
+            if (!self) return;
             self->_data = x;
             [self->_collectionView reloadData];
         }];
@@ -85,7 +86,9 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     // execute the command
-    [_selection execute:_data[indexPath.row]];
+    if (_selection) {
+        [_selection execute:_data[indexPath.row]];
+    }
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
