@@ -44,6 +44,7 @@
         @weakify(self);
         [source subscribeNext:^(id x) {
             @strongify(self);
+            if (!self) return;
             self->_data = x;
             [self->_tableView reloadData];
         }];
