@@ -95,7 +95,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // execute the command
-    [_selection execute:_data[indexPath.row]];
+    if (_selection) {
+        [_selection execute:_data[indexPath.row]];
+    }
     
     // forward the delegate method
     if ([self.delegate respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)]) {
